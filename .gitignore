@@ -1,0 +1,8 @@
+.ipynb_checkpoints/
+__pycache__/
+.venv/
+venv/
+# arquivos gerados ao rodar os tutoriais
+alunos_sujo.csv
+alunos_limpo.csv
+painel_alunos.png
