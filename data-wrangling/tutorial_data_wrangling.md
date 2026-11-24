@@ -126,7 +126,7 @@ for col in ["idade", "peso_kg", "nota", "cidade"]:
 # nulos "disfarçados"
 dados.loc[[3, 40, 77], "nota"] = "?"
 dados.loc[[10, 90], "peso_kg"] = -999
-dados.loc[[5, 120], "cidade"] = "N/A"
+dados.loc[[5, 120], "cidade"] = "não informado"
 dados.loc[[33, 150], "idade"] = "sem info"
 # valores impossíveis
 dados.loc[[7, 60], "idade"] = -3
@@ -175,7 +175,7 @@ id      nome idade  altura_m  peso_kg          cidade nota  horas_estudo
 2   3   Aluno 3    17      1.65     79.3       sao paulo  5.7             3
 3   4   Aluno 4    16      1.80     46.7        Curitiba    ?             0
 4   5   Aluno 5    16      1.65     70.6      São Paulo   6.9             1
-5   6   Aluno 6    18      1.75     58.7             NaN  3.8            11
+5   6   Aluno 6    18      1.75     58.7   não informado  3.8            11
 6   7   Aluno 7    15      1.60     61.4              SP  7.3             3
 7   8   Aluno 8    -3      1.66     51.5       São Paulo  5.6             4
 8   9   Aluno 9    15      1.59     58.7  RIO DE JANEIRO  8.4            16
@@ -212,7 +212,7 @@ Data columns (total 8 columns):
  2   idade         194 non-null    str    
  3   altura_m      205 non-null    float64
  4   peso_kg       193 non-null    float64
- 5   cidade        190 non-null    str    
+ 5   cidade        192 non-null    str    
  6   nota          193 non-null    str    
  7   horas_estudo  205 non-null    int64  
 dtypes: float64(2), int64(2), str(4)
@@ -279,7 +279,9 @@ NaN    12
 Um **valor nulo** (`NaN`, "Not a Number") significa "não sei / não foi informado". Existem dois tipos:
 
 1. **Nulos verdadeiros**: o campo está vazio. O pandas já reconhece como `NaN`.
-2. **Nulos disfarçados**: alguém escreveu `"?"`, `"N/A"`, `"sem info"` ou um código como `-999`. O pandas **não** reconhece sozinho.
+2. **Nulos disfarçados**: alguém escreveu `"?"`, `"não informado"`, `"sem info"` ou um código como `-999`. O pandas **não** reconhece sozinho.
+
+> 💡 Alguns textos o pandas **já** reconhece como nulo sem você pedir, como `""` (vazio), `"NA"`, `"N/A"`, `"NULL"` e `"NaN"`. Os outros você precisa informar.
 
 ### 📚 Teoria 1: o que é `NaN`
 O `NaN` vem do padrão de números de ponto flutuante **IEEE 754** e é usado pelo NumPy [19] e pelo pandas [12] para representar a ausência de valor. Uma propriedade curiosa: `NaN == NaN` é **falso**. Por isso nunca se testa nulo com `==`, e sim com `.isna()`.
@@ -296,7 +298,7 @@ Donald Rubin [2] classificou **por que** um dado falta. Isso define como você d
 > 💡 Não existe um teste que prove com certeza qual é o mecanismo. Você decide com **conhecimento do assunto**.
 
 ### 📚 Teoria 3: valores sentinela
-Códigos como `-999`, `"?"` e `"N/A"` são chamados de **valores sentinela**: alguém usou um valor "especial" para dizer "não sei". São perigosos porque **parecem dados**. Um `-999` entra na média e a puxa muito para baixo.
+Códigos como `-999`, `"?"` e `"não informado"` são chamados de **valores sentinela**: alguém usou um valor "especial" para dizer "não sei". São perigosos porque **parecem dados**. Um `-999` entra na média e a puxa muito para baixo.
 
 ### 3.1 Contar os nulos verdadeiros
 
@@ -316,7 +318,7 @@ nome             0
 idade           11
 altura_m         0
 peso_kg         12
-cidade          15
+cidade          13
 nota            12
 horas_estudo     0
 dtype: int64
@@ -331,7 +333,7 @@ O jeito mais fácil é avisar o pandas **na hora de ler o arquivo**, com `na_val
 - Colocamos `-999` como número **e** como texto (`"-999"`) para garantir.
 
 ```python
-disfarces = ["?", "N/A", "sem info", -999, "-999"]
+disfarces = ["?", "não informado", "sem info", -999, "-999"]
 df = pd.read_csv("alunos_sujo.csv", na_values=disfarces)
 
 df.isna().sum()
@@ -415,13 +417,23 @@ dtype: float64
 
 ```python
 # Visualizando onde estão os nulos (cada faixa clara = um valor faltando)
-plt.figure(figsize=(8, 4))
+plt.figure(figsize=(9, 5))
 sns.heatmap(df.isna(), cbar=False, yticklabels=False, cmap="viridis")
-plt.title("Mapa de valores nulos")
+plt.title("Mapa de valores nulos (amarelo = valor faltando)")
+plt.xlabel("Colunas")
+plt.ylabel("Linhas (alunos)")
+plt.xticks(rotation=30, ha="right")
+plt.tight_layout()
 plt.show()
 ```
 
 > 📊 *Esta célula mostra um gráfico. Rode o código para vê-lo.*
+
+### Como ler o mapa
+- Cada **coluna** do gráfico é uma coluna da tabela, e cada **linha horizontal** é um aluno.
+- **Roxo** = tem valor; **amarelo** = valor faltando.
+- Um traço amarelo **mais grosso** = nulos em alunos **vizinhos** na tabela (linhas seguidas).
+- `altura_m` e `horas_estudo` ainda aparecem **sem** nulos: os valores impossíveis delas (altura 0, horas -2) **ainda não** viraram `NaN`. Isso acontece na Parte 4. Ou seja: **não ter nulo não significa que o dado está correto.**
 
 ## Parte 4: Valores impossíveis
 
