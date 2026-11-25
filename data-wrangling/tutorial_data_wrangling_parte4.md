@@ -4,7 +4,7 @@
 
 **Autor:** Fabio Stein
 
-Este tutorial continua o [Tutorial 1](tutorial_data_wrangling.ipynb) (limpeza e gráficos) e o [Tutorial 2](tutorial_data_wrangling_parte2.ipynb) (outliers e transformações). Agora a tabela já está limpa e a pergunta muda: **"qual filial vende mais?"**, **"qual o ticket médio por canal?"**, **"como as vendas evoluem mês a mês?"**. Para responder, você vai **agrupar** as linhas e **resumir** cada grupo.
+Este tutorial continua o [Tutorial 1](tutorial_data_wrangling.ipynb) (limpeza e gráficos) e o [Tutorial 3](tutorial_data_wrangling_parte3.ipynb) (outliers e transformações). Agora a tabela já está limpa e a pergunta muda: **"qual filial vende mais?"**, **"qual o ticket médio por canal?"**, **"como as vendas evoluem mês a mês?"**. Para responder, você vai **agrupar** as linhas e **resumir** cada grupo.
 
 **Como usar:** execute uma célula por vez (`Shift + Enter`), leia a explicação antes e olhe o resultado depois. Os quadros **📚 Teoria (opcional)** podem ser pulados numa primeira leitura.
 
@@ -251,7 +251,7 @@ São Paulo     320.80   218.85   13.82  2069.67         338.22
 ```
 
 ### Como ler
-- A **média** fica bem acima da **mediana** em todas as filiais: a receita tem cauda longa (algumas vendas de eletrônicos são caras), como vimos no Tutorial 2.
+- A **média** fica bem acima da **mediana** em todas as filiais: a receita tem cauda longa (algumas vendas de eletrônicos são caras), como vimos no Tutorial 3.
 - Por isso, para "a venda típica", a mediana descreve melhor; para "quanto entrou no caixa", a soma é que importa.
 
 ### 2.4 Agrupar uma `Series` por dicionário ou por função

@@ -15,8 +15,8 @@ Clique no botão de cada tutorial. Ele abre no **Google Colab**, direto no naveg
 | Tutorial | Assunto | Abrir |
 |---|---|---|
 | 1 | Valores nulos, valores impossíveis, texto bagunçado, duplicados e gráficos | [![Abrir no Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/fabioluisstein/estudos/blob/main/data-wrangling/tutorial_data_wrangling.ipynb) |
-| 2 | Outliers, formatos e transformação de dados | [![Abrir no Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/fabioluisstein/estudos/blob/main/data-wrangling/tutorial_data_wrangling_parte2.ipynb) |
-| 3 | Valores nulos: técnicas complementares (e duplicados) | [![Abrir no Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/fabioluisstein/estudos/blob/main/data-wrangling/tutorial_data_wrangling_parte3.ipynb) |
+| 2 | Valores nulos: técnicas complementares (e duplicados) | [![Abrir no Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/fabioluisstein/estudos/blob/main/data-wrangling/tutorial_data_wrangling_parte2.ipynb) |
+| 3 | Outliers, formatos e transformação de dados | [![Abrir no Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/fabioluisstein/estudos/blob/main/data-wrangling/tutorial_data_wrangling_parte3.ipynb) |
 | 4 | Agrupamento e agregação de dados | [![Abrir no Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/fabioluisstein/estudos/blob/main/data-wrangling/tutorial_data_wrangling_parte4.ipynb) |
 | 5 | Juntar tabelas (concat, merge e join) | [![Abrir no Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/fabioluisstein/estudos/blob/main/data-wrangling/tutorial_data_wrangling_parte5.ipynb) |
 
@@ -37,7 +37,7 @@ Prefere usar no seu computador? Veja a seção "Como usar os notebooks" no [READ
 4. **Faça os exercícios** do fim do tutorial.
 5. **Segunda leitura:** agora sim, leia os quadros 📚 Teoria. Eles vão fazer muito mais sentido.
 
-> Ordem recomendada: **1 → 3 → 2 → 4 → 5**. O Tutorial 3 completa o 1 (os dois falam de nulos), e o 4 vem antes do 5 porque o último usa agrupamento.
+> **Ordem de estudo: 1 → 2 → 3 → 4 → 5**, a mesma ordem das aulas. Cada tutorial só usa o que foi visto nos anteriores.
 
 ---
 
@@ -49,19 +49,19 @@ Os nomes de arquivo são os do material da disciplina.
 
 | Aula | Tema | Onde estudar |
 |---|---|---|
-| `TOPD2026-2_21.pdf` | Por que os dados vêm "sujos": nulos, duplicados, outliers e formatos; o fluxo de limpeza | Tutorial 1: Conceitos fundamentais e Partes 2 a 7 · Tutorial 2: Parte 2 (formatos) |
-| `TOPD2026-2_22` | O que são nulos; apagar ou preencher; preenchimento por tipo de variável | Tutorial 1: Partes 3 e 6 · Tutorial 3: Partes 1, 3, 4 e 6 |
-| `TOPD2026-2_23` | `isnull`, `dropna`, `fillna`, preencher para frente e para trás | Tutorial 1: Partes 3 e 6 · Tutorial 3: Partes 3 e 5 |
-| `TOPD2026-2_24` | Roteiro de análise de nulos: detectar, achar padrões, medir o impacto | Tutorial 3: Partes 2, 3 e 8 |
-| `TOPD2026-2_25` | Exercício integrador de nulos | Use o "Resumo do fluxo" dos Tutoriais 1 e 3 como roteiro |
+| `TOPD2026-2_21.pdf` | Por que os dados vêm "sujos": nulos, duplicados, outliers e formatos; o fluxo de limpeza | Tutorial 1: Conceitos fundamentais e Partes 2 a 7 · Tutorial 3: Parte 2 (formatos) |
+| `TOPD2026-2_22` | O que são nulos; apagar ou preencher; preenchimento por tipo de variável | Tutorial 1: Partes 3 e 6 · Tutorial 2: Partes 1, 3, 4 e 6 |
+| `TOPD2026-2_23` | `isnull`, `dropna`, `fillna`, preencher para frente e para trás | Tutorial 1: Partes 3 e 6 · Tutorial 2: Partes 3 e 5 |
+| `TOPD2026-2_24` | Roteiro de análise de nulos: detectar, achar padrões, medir o impacto | Tutorial 2: Partes 2, 3 e 8 |
+| `TOPD2026-2_25` | Exercício integrador de nulos | Use o "Resumo do fluxo" dos Tutoriais 1 e 2 como roteiro |
 
 ### Módulo 07: Data Wrangling 2
 
 | Aula | Tema | Onde estudar |
 |---|---|---|
-| `TOPD2026-2_26` | Outliers: detecção visual, IQR, Z-score, MAD, Isolation Forest e tratamento | Tutorial 2: Partes 3 a 6 |
-| `TOPD2026-2_27` | Amostragem, permutação e ordenação | Tutorial 2: Partes 7 e 8 |
-| `TOPD2026-2_28` | Duplicados, substituição de valores, faixas (`cut`/`qcut`) e funções (`apply`) | Tutorial 1: Parte 5.2 · Tutorial 3: Parte 7 · Tutorial 2: Partes 9 a 11 |
+| `TOPD2026-2_26` | Outliers: detecção visual, IQR, Z-score, MAD, Isolation Forest e tratamento | Tutorial 3: Partes 3 a 6 |
+| `TOPD2026-2_27` | Amostragem, permutação e ordenação | Tutorial 3: Partes 7 e 8 |
+| `TOPD2026-2_28` | Duplicados, substituição de valores, faixas (`cut`/`qcut`) e funções (`apply`) | Tutorial 1: Parte 5.2 · Tutorial 2: Parte 7 · Tutorial 3: Partes 9 a 11 |
 
 ### Módulo 08: Agrupamento e agregação
 
@@ -80,9 +80,9 @@ Os nomes de arquivo são os do material da disciplina.
 
 ---
 
-## 4. Essencial × pode esperar (Tutoriais 1 e 2)
+## 4. Essencial × pode esperar (Tutoriais 1 e 3)
 
-Os Tutoriais 3, 4 e 5 já marcam a teoria como **(opcional)** no título. Para os dois primeiros, use esta lista.
+Os Tutoriais 2, 4 e 5 já marcam a teoria como **(opcional)** no título. Para o 1 e o 3, use esta lista.
 
 ### Tutorial 1
 
@@ -90,14 +90,14 @@ Os Tutoriais 3, 4 e 5 já marcam a teoria como **(opcional)** no título. Para o
 |---|---|---|
 | Conceitos fundamentais | o que é data wrangling e a tabela de dimensões da qualidade | *tidy data* |
 | 0 a 2 | tudo (carregar e olhar os dados) | quadros de teoria |
-| 3 Valores nulos | 3.1 a 3.4 | mecanismos de Rubin (veja de novo no Tutorial 3) |
-| 4 Valores impossíveis | 4.1 a 4.3 | regra de Tukey (aparece de novo no Tutorial 2) |
+| 3 Valores nulos | 3.1 a 3.4 | mecanismos de Rubin (veja de novo no Tutorial 2) |
+| 4 Valores impossíveis | 4.1 a 4.3 | regra de Tukey (aparece de novo no Tutorial 3) |
 | 5 Texto e duplicados | tudo | |
 | 6 Apagar ou preencher | 6.1 a 6.3 | "por que a mediana é robusta" e imputação condicional |
 | 7 Validar | tudo | |
 | 8 Visualização | 8.1 a 8.5 | Teorias 1 a 4, mapa de calor e painel (8.6 e 8.7) |
 
-### Tutorial 2
+### Tutorial 3
 
 | Parte | Essencial | Pode esperar |
 |---|---|---|
